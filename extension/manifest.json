@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Claude Code Bridge",
+  "version": "0.1.0",
+  "description": "Partage un onglet Chrome deja ouvert avec Claude Code, qui peut alors le lire et interagir avec.",
+  "minimum_chrome_version": "116",
+  "permissions": ["debugger", "tabs", "storage", "alarms"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Claude Code Bridge",
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["page-agent.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

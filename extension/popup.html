@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Claude Code Bridge</h1>
+      <span id="status" class="status status--off">hors ligne</span>
+    </header>
+
+    <p id="error" class="error" hidden></p>
+
+    <section>
+      <h2>Onglet courant</h2>
+      <div id="current" class="current"></div>
+    </section>
+
+    <section>
+      <h2>Onglets partages <span id="count" class="count"></span></h2>
+      <ul id="shared" class="list"></ul>
+      <p id="empty" class="hint">
+        Aucun onglet partage. Claude Code ne voit rien tant que tu n'as rien partage.
+      </p>
+    </section>
+
+    <section>
+      <h2>Conversations <span id="sessionCount" class="count"></span></h2>
+      <ul id="sessions" class="list list--compact"></ul>
+      <p id="noSessions" class="hint">
+        Aucune conversation Claude Code connectee au pont pour l'instant.
+      </p>
+    </section>
+
+    <details id="settings">
+      <summary>Connexion</summary>
+      <label>
+        Port
+        <input id="port" type="number" min="1" max="65535" />
+      </label>
+      <label>
+        Jeton <small>(optionnel, doit correspondre a CHROME_BRIDGE_TOKEN)</small>
+        <input id="token" type="text" autocomplete="off" spellcheck="false" />
+      </label>
+      <button id="save" class="btn btn--ghost">Enregistrer et reconnecter</button>
+    </details>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

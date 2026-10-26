@@ -1,0 +1,275 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1c1a17;
+  --muted: #6b6560;
+  --line: #e6e1db;
+  --accent: #c96442;
+  --ok: #2f7d4f;
+  --danger: #b3261e;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1f1e1c;
+    --fg: #f1eee9;
+    --muted: #a8a29b;
+    --line: #35322e;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 360px;
+  margin: 0;
+  padding: 14px;
+  background: var(--bg);
+  color: var(--fg);
+  font: 13px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+h2 {
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+section {
+  margin-bottom: 14px;
+}
+
+.status {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.status--on {
+  background: color-mix(in srgb, var(--ok) 15%, transparent);
+  color: var(--ok);
+}
+
+.status--off {
+  background: color-mix(in srgb, var(--muted) 15%, transparent);
+  color: var(--muted);
+}
+
+.count {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.current,
+.list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Un onglet partage empile sa ligne d'actions et son selecteur de conversation. */
+.list li.tab {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.tab .row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.assign {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--line);
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.select {
+  flex: 1;
+  min-width: 0;
+  padding: 4px 6px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--fg);
+  font: inherit;
+  font-size: 11px;
+}
+
+.list--compact li {
+  padding: 7px 10px;
+}
+
+.meta {
+  min-width: 0;
+  flex: 1;
+}
+
+.title {
+  display: block;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.url {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badge {
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.btn {
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(1.08);
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--fg);
+}
+
+.btn--danger {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--danger);
+}
+
+.btn[disabled] {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.link {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--muted);
+  font: inherit;
+  font-size: 11px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.error {
+  margin: 0 0 10px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+  color: var(--danger);
+  font-size: 12px;
+}
+
+details {
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+details label {
+  display: block;
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+details small {
+  font-weight: 400;
+}
+
+details input {
+  display: block;
+  width: 100%;
+  margin-top: 3px;
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--fg);
+  font: inherit;
+}
+
+#save {
+  margin-top: 10px;
+  width: 100%;
+}

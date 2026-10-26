@@ -1,0 +1,20 @@
+{
+  "name": "claude-chrome-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Pont MCP entre Claude Code et un onglet Chrome deja ouvert, via une extension MV3.",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "broker": "node server/broker.js",
+    "test": "node scripts/smoke-test.mjs && node scripts/broker-test.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "ws": "^8.18.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
